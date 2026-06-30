@@ -304,6 +304,13 @@ img{max-width:100%; display:block}
   .ftf-ward{border-left:0; border-top:2px solid var(--rule); padding-left:0; padding-top:var(--sp-5)}
   .ftf-row2{grid-template-columns:1fr}
 }
+@media (max-width:480px){
+  .ftf-wrap{padding:0 var(--sp-4)}
+  .ftf-formcard{padding:var(--sp-4)}
+  .ftf-submit-footer{flex-direction:column; align-items:flex-start}
+  .ftf-about-row{flex-wrap:wrap}
+  .ftf-about-row > span:first-child{width:auto}
+}
 @media (prefers-reduced-motion:reduce){
   *{transition:none !important}
 }
