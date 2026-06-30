@@ -1,0 +1,20 @@
+{%- comment -%} Post index card. Pass post=<post>. {%- endcomment -%}
+{%- assign p = include.post -%}
+{%- assign words = p.content | number_of_words -%}
+{%- assign secs = words | times: 60 | divided_by: site.reading_wpm -%}
+{%- assign mm = secs | divided_by: 60 -%}
+{%- assign ss = secs | modulo: 60 -%}
+<a class="ftf-postcard" href="{{ p.url | relative_url }}">
+  <div class="ftf-postcard__head">
+    <span class="ftf-tag ftf-tag--sm"{% if p.tone and p.tone != 'neutral' %} data-cat="{{ p.tone }}"{% endif %}>{{ p.category }}</span>
+    {%- if p.filed %}<span class="ftf-postcard__num">{{ p.filed }}</span>{% endif -%}
+  </div>
+  <h3 class="ftf-postcard__title">{{ p.title }}</h3>
+  {%- if p.excerpt %}<p class="ftf-postcard__excerpt">{{ p.excerpt | strip_html | truncatewords: 28 }}</p>{% endif -%}
+  <div class="ftf-byline">
+    {%- if p.author %}<b>BY {{ p.author | upcase }}</b><span class="sep">·</span>{% endif -%}
+    <span>{{ p.date | date: "%b %-d, %Y" | upcase }}</span>
+    <span class="sep">·</span>
+    <span class="read">READ TIME {{ mm }}:{% if ss < 10 %}0{% endif %}{{ ss }}</span>
+  </div>
+</a>

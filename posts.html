@@ -1,0 +1,20 @@
+---
+layout: default
+title: Posts
+nav: posts
+permalink: /posts/
+---
+<div class="ftf-wrap">
+  {%- include masthead.html -%}
+
+  <div class="ftf-mb6" style="display:flex;align-items:center;justify-content:space-between;gap:var(--sp-4);flex-wrap:wrap;padding:var(--sp-7) 0 var(--sp-5)">
+    <h1 class="ftf-section-title">The Index</h1>
+    <span class="ftf-byline">{{ site.posts.size }} DISPATCHES</span>
+  </div>
+
+  <div class="ftf-grid" style="padding-bottom:var(--sp-9)">
+    {%- for post in site.posts -%}
+      {%- include postcard.html post=post -%}
+    {%- endfor -%}
+  </div>
+</div>

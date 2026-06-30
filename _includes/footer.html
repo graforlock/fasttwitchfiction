@@ -1,0 +1,19 @@
+<footer class="ftf-footer">
+  <div class="ftf-wrap ftf-footer__grid">
+    <div class="ftf-footer__col">
+      <div class="ac" style="color:var(--accent)">// THE WARD REPORT</div>
+      {{ site.title | upcase }}<br>
+      {{ site.tagline | upcase }}
+    </div>
+    <div class="ftf-footer__col">
+      <a href="{{ '/posts/' | relative_url }}">POSTS</a><br>
+      <a href="{{ '/submit/' | relative_url }}">SUBMIT A SPECIMEN</a><br>
+      <a href="{{ '/about/' | relative_url }}">ABOUT</a><br>
+      <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+    </div>
+    <div class="ftf-footer__col">
+      EDITOR: {{ site.author | upcase }}<br>
+      &copy; {{ site.time | date: "%Y" }} {{ site.title | upcase }}
+    </div>
+  </div>
+</footer>

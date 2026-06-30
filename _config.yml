@@ -1,0 +1,41 @@
+title: Fast Twitch Fiction
+tagline: Necrofiction in the time it takes to flinch.
+description: >-
+  A horror flash-fiction magazine. Dispatches, issue notes, and field reports
+  from the slab. The stories live in the magazine; this is the ward.
+author: The Host
+
+# IMPORTANT for GitHub Project Pages (username.github.io/REPO):
+# set url to your user site and baseurl to "/REPO". For a user/org page
+# (username.github.io) leave baseurl as "".
+url: ""
+baseurl: ""
+
+# Submissions: paste your Formspree (or other) form endpoint here.
+# Leave blank to run the form in demo mode (no real send).
+submit_endpoint: ""
+
+permalink: /posts/:title/
+timezone: Etc/UTC
+
+collections_dir: .
+
+defaults:
+  - scope: { path: "", type: "posts" }
+    values:
+      layout: post
+      category: Dispatch
+      tone: neutral   # neutral | body | cosmic | divine  (colours the tag)
+
+# Words-per-minute used to compute the "vital sign" read time.
+reading_wpm: 200
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor

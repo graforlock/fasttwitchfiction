@@ -1,0 +1,47 @@
+---
+layout: default
+title: About
+nav: about
+permalink: /about/
+---
+<div class="ftf-wrap">
+  {%- include masthead.html -%}
+</div>
+
+<header class="ftf-posthead">
+  <div><span class="ftf-tag ftf-tag--sm" data-cat="divine">Necrofiction</span></div>
+  <h1>In the time it takes<br><em style="color:var(--accent);font-style:italic">to flinch</em></h1>
+  <p class="ftf-featured__lede" style="margin:0 auto;max-width:42ch">
+    Fast Twitch Fiction is a horror flash-fiction magazine for the short, wet, and unspeakable.
+  </p>
+</header>
+
+<div class="ftf-rule-blood" aria-hidden="true"></div>
+
+<article class="ftf-prose">
+  <p>We publish <strong>necrofiction</strong> — body horror, cosmic grotesque, the divine and the diseased. Every piece is flash: it must be read in a single twitch, the involuntary contraction of a fast muscle before the brain has caught up. No build-up you can brace against. No mercy you can plan for.</p>
+
+  <p>The stories live in the magazine. This is the <em>ward</em> — dispatches, issue notes, calls for specimens, and the occasional field report from the slab. We treat each piece as evidence: filed, categorized, examined under coroner's light. We run three registers — the visceral prose that is our spine; the corrupted classified advertisement; and the conversational pitch that ends, flatly, somewhere you did not agree to go.</p>
+
+  <p>We are not interested in the spine-tingling or the chilling. We are interested in continence that won't take, in the host and the thing it hosts, in tissue that expands into galaxies. If a piece can be read aloud without the reader's jaw setting, it is not for us.</p>
+
+  <div style="margin-top:var(--sp-7);padding-top:var(--sp-5);border-top:2px solid var(--rule)">
+    <div style="font-family:var(--font-mono);font-size:var(--fs-micro);font-weight:700;letter-spacing:var(--ls-meta-wide);text-transform:uppercase;color:var(--accent);margin-bottom:var(--sp-3)">// THE WARD REPORT</div>
+    <div class="ftf-about-row"><span>Published</span><span>Monthly · one issue per lunar cycle</span></div>
+    <div class="ftf-about-row"><span>Form</span><span>Flash fiction — under or at 700 words</span></div>
+    <div class="ftf-about-row"><span>Categories</span><span>Body · Cosmic · Divine</span></div>
+    <div class="ftf-about-row"><span>Editor</span><span>{{ site.author }}</span></div>
+    <div class="ftf-about-row"><span>Founded</span><span>Issue 01 · the first flinch</span></div>
+  </div>
+
+  <div class="ftf-stack" style="margin-top:var(--sp-7)">
+    <a class="ftf-btn" href="{{ '/submit/' | relative_url }}">Submit a specimen →</a>
+    <a class="ftf-btn ftf-btn--ghost" href="{{ '/posts/' | relative_url }}">Read the latest</a>
+  </div>
+</article>
+
+<style>
+  .ftf-about-row{display:flex;gap:var(--sp-4);padding:var(--sp-3) 0;border-bottom:1px solid var(--rule-faint)}
+  .ftf-about-row > span:first-child{width:9rem;flex:none;font-family:var(--font-mono);font-size:var(--fs-micro);font-weight:700;letter-spacing:var(--ls-meta);text-transform:uppercase;color:var(--text-faint)}
+  .ftf-about-row > span:last-child{font-family:var(--font-mono);font-size:var(--fs-meta);letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted)}
+</style>

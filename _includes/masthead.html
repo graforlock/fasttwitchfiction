@@ -1,0 +1,26 @@
+{%- comment -%} Masthead. Pass hero=true for the big centered home variant. {%- endcomment -%}
+{%- assign cur = page.nav | default: "" -%}
+{%- if include.hero -%}
+<header class="ftf-masthead ftf-masthead--hero">
+  <div class="ftf-masthead__kicker">{{ site.tagline | upcase }}</div>
+  <a href="{{ '/' | relative_url }}" class="ftf-word" aria-label="{{ site.title }}">
+    <span>FAST</span><em>TWITCH</em><span>FICTION</span>
+  </a>
+  <nav class="ftf-nav">
+    <a href="{{ '/posts/' | relative_url }}"{% if cur == 'posts' %} aria-current="page"{% endif %}>Posts</a>
+    <a href="{{ '/submit/' | relative_url }}"{% if cur == 'submit' %} aria-current="page"{% endif %}>Submit</a>
+    <a href="{{ '/about/' | relative_url }}"{% if cur == 'about' %} aria-current="page"{% endif %}>About</a>
+  </nav>
+</header>
+{%- else -%}
+<header class="ftf-masthead">
+  <a href="{{ '/' | relative_url }}" class="ftf-word" aria-label="{{ site.title }}">
+    <span>FAST</span><em>TWITCH</em><span>FICTION</span>
+  </a>
+  <nav class="ftf-nav">
+    <a href="{{ '/posts/' | relative_url }}"{% if cur == 'posts' %} aria-current="page"{% endif %}>Posts</a>
+    <a href="{{ '/submit/' | relative_url }}"{% if cur == 'submit' %} aria-current="page"{% endif %}>Submit</a>
+    <a href="{{ '/about/' | relative_url }}"{% if cur == 'about' %} aria-current="page"{% endif %}>About</a>
+  </nav>
+</header>
+{%- endif -%}

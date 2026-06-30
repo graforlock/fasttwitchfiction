@@ -1,0 +1,39 @@
+---
+layout: default
+nav: home
+---
+{%- assign feat = site.posts.first -%}
+<div class="ftf-wrap">
+  {%- include masthead.html hero=true -%}
+
+  {%- if feat -%}
+  <section class="ftf-featured">
+    <div>
+      <div class="ftf-mb6">
+        <span class="ftf-tag ftf-tag--sm"{% if feat.tone and feat.tone != 'neutral' %} data-cat="{{ feat.tone }}"{% endif %}>{{ feat.category }}</span>
+      </div>
+      <h2 class="ftf-featured__title">{{ feat.title }}</h2>
+      <p class="ftf-featured__lede">{{ feat.excerpt | strip_html | truncatewords: 34 }}</p>
+      <div class="ftf-stack">
+        <a class="ftf-btn" href="{{ feat.url | relative_url }}">Read the latest →</a>
+        <a class="ftf-btn ftf-btn--ghost" href="{{ '/posts/' | relative_url }}">All posts</a>
+      </div>
+    </div>
+    <aside class="ftf-ward">
+      <div class="ac">// THE WARD REPORT</div>
+      <div>{{ site.posts.size }} DISPATCHES FILED</div>
+      <div>LATEST · {{ feat.date | date: "%b %-d, %Y" | upcase }}</div>
+      <div>EDITOR · {{ site.author | upcase }}</div>
+      <div class="dim">{{ site.tagline | upcase }}</div>
+    </aside>
+  </section>
+  {%- else -%}
+  <section class="ftf-featured">
+    <div>
+      <h2 class="ftf-featured__title">Nothing on the slab yet.</h2>
+      <p class="ftf-featured__lede">Add a Markdown file to <code>_posts/</code> and it appears here.</p>
+      <a class="ftf-btn" href="{{ '/submit/' | relative_url }}">Submit a specimen →</a>
+    </div>
+  </section>
+  {%- endif -%}
+</div>

@@ -1,0 +1,48 @@
+---
+layout: default
+---
+{%- assign words = content | number_of_words -%}
+{%- assign secs = words | times: 60 | divided_by: site.reading_wpm -%}
+{%- assign mm = secs | divided_by: 60 -%}
+{%- assign ss = secs | modulo: 60 -%}
+{%- comment -%} next post = the one published just before this {%- endcomment -%}
+{%- assign posts = site.posts -%}
+{%- assign idx = 0 -%}
+{%- for p in posts -%}{% if p.url == page.url %}{% assign idx = forloop.index0 %}{% endif %}{%- endfor -%}
+{%- assign nxt = posts[idx | plus: 1] | default: posts.first -%}
+
+<div class="ftf-wrap">
+  {%- include masthead.html -%}
+</div>
+
+<header class="ftf-posthead">
+  <a class="ftf-back" href="{{ '/posts/' | relative_url }}">← BACK TO POSTS</a>
+  <div>
+    <span class="ftf-tag ftf-tag--sm"{% if page.tone and page.tone != 'neutral' %} data-cat="{{ page.tone }}"{% endif %}>{{ page.category }}</span>
+  </div>
+  <h1>{{ page.title }}</h1>
+  <div class="ftf-byline" style="justify-content:center">
+    {%- if page.author %}<b>BY {{ page.author | upcase }}</b><span class="sep">·</span>{% endif -%}
+    <span>{{ page.date | date: "%b %-d, %Y" | upcase }}</span>
+    <span class="sep">·</span>
+    <span class="read">READ TIME {{ mm }}:{% if ss < 10 %}0{% endif %}{{ ss }}</span>
+  </div>
+</header>
+
+<div class="ftf-rule-blood" aria-hidden="true"></div>
+
+<article class="ftf-prose">
+  {{ content }}
+  <div class="ftf-prose__end">END OF DISPATCH{% if page.filed %} — {{ page.filed }}{% endif %}</div>
+</article>
+
+{%- if nxt and nxt.url != page.url -%}
+<section class="ftf-next">
+  <div class="ftf-next__grain" aria-hidden="true"></div>
+  <div class="ftf-next__inner">
+    <div class="ftf-next__kicker">NEXT DISPATCH</div>
+    <h2>{{ nxt.title }}</h2>
+    <a class="ftf-btn" href="{{ nxt.url | relative_url }}">Continue →</a>
+  </div>
+</section>
+{%- endif -%}
