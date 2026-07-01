@@ -306,8 +306,16 @@ img{max-width:100%; display:block}
 }
 @media (max-width:480px){
   .ftf-wrap{padding:0 var(--sp-4)}
+  /* compact masthead: stack logo above nav on narrow phones */
+  .ftf-masthead:not(.ftf-masthead--hero){flex-direction:column; align-items:flex-start; gap:var(--sp-3)}
+  .ftf-masthead:not(.ftf-masthead--hero) .ftf-nav{gap:var(--sp-4)}
+  /* reading pages: tighten horizontal padding */
+  .ftf-posthead{padding-left:var(--sp-4); padding-right:var(--sp-4)}
+  .ftf-prose{padding-left:var(--sp-4); padding-right:var(--sp-4)}
+  /* submit form */
   .ftf-formcard{padding:var(--sp-4)}
   .ftf-submit-footer{flex-direction:column; align-items:flex-start}
+  /* about ward-report rows */
   .ftf-about-row{flex-wrap:wrap}
   .ftf-about-row > span:first-child{width:auto}
 }

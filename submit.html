@@ -30,40 +30,33 @@ permalink: /submit/
     </div>
 
     <div class="ftf-formcard">
-      <div id="ftf-thanks" style="display:none;text-align:center;padding:var(--sp-7) var(--sp-2)">
-        <div style="font-family:var(--font-display);font-weight:900;font-size:var(--fs-h1);color:var(--accent);margin-bottom:var(--sp-4)">Filed.</div>
-        <p style="font-size:var(--fs-body);color:var(--text-muted);margin:0">Your specimen is on the slab. Weigh your words; we already have.</p>
+      <div style="font-family:var(--font-mono);font-size:var(--fs-micro);font-weight:700;letter-spacing:var(--ls-meta-wide);text-transform:uppercase;color:var(--accent);margin-bottom:var(--sp-5)">// HOW TO SUBMIT</div>
+
+      <div style="display:flex;flex-direction:column;gap:var(--sp-4);margin-bottom:var(--sp-6)">
+        <div style="display:flex;gap:var(--sp-4);align-items:baseline">
+          <span style="font-family:var(--font-mono);font-size:var(--fs-micro);font-weight:700;letter-spacing:var(--ls-meta);text-transform:uppercase;color:var(--text-faint);flex:none;width:5rem">Subject</span>
+          <span style="font-family:var(--font-mono);font-size:var(--fs-meta);color:var(--text-muted)">TITLE — Your Name</span>
+        </div>
+        <div style="display:flex;gap:var(--sp-4);align-items:baseline">
+          <span style="font-family:var(--font-mono);font-size:var(--fs-micro);font-weight:700;letter-spacing:var(--ls-meta);text-transform:uppercase;color:var(--text-faint);flex:none;width:5rem">Body</span>
+          <span style="font-family:var(--font-mono);font-size:var(--fs-meta);color:var(--text-muted)">Paste the specimen in plain text. No attachments.</span>
+        </div>
+        <div style="display:flex;gap:var(--sp-4);align-items:baseline">
+          <span style="font-family:var(--font-mono);font-size:var(--fs-micro);font-weight:700;letter-spacing:var(--ls-meta);text-transform:uppercase;color:var(--text-faint);flex:none;width:5rem">Category</span>
+          <span style="font-family:var(--font-mono);font-size:var(--fs-meta);color:var(--text-muted)">Note Body, Cosmic, or Divine at the top of your email.</span>
+        </div>
       </div>
 
-      <form id="ftf-form"
-            {% if site.submit_endpoint != "" %}action="{{ site.submit_endpoint }}" method="POST"{% endif %}>
-        <div class="ftf-row2">
-          <label class="ftf-field"><span>Title</span><input name="title" placeholder="GRANDMA'S DENTURES" required></label>
-          <label class="ftf-field"><span>Author</span><input name="author" placeholder="A. SPECIMEN" required></label>
-        </div>
-        <label class="ftf-field"><span>Email</span><input type="email" name="email" placeholder="YOU@SLAB.XYZ" required></label>
-        <label class="ftf-field"><span>The specimen</span><textarea name="specimen" rows="8" placeholder="Begin where it hurts…" required></textarea></label>
-        <div class="ftf-submit-footer" style="display:flex;align-items:center;justify-content:space-between;gap:var(--sp-4)">
-          <span id="ftf-count" class="ftf-byline">0 / 700 WORDS</span>
-          <button class="ftf-btn" type="submit">Send to the slab →</button>
-        </div>
-      </form>
+      <a href="mailto:fasttwitchfiction@gmail.com?subject=TITLE%20%E2%80%94%20Your%20Name" class="ftf-btn ftf-btn--lg" style="display:inline-flex">
+        Open email client →
+      </a>
+
+      <p style="margin:var(--sp-5) 0 0;font-family:var(--font-mono);font-size:var(--fs-micro);letter-spacing:var(--ls-meta);text-transform:uppercase;color:var(--text-faint)">
+        Or write directly to<br>
+        <span style="color:var(--text-muted)">fasttwitchfiction@gmail.com</span>
+      </p>
     </div>
   </div>
 </div>
 
 <style>@media (max-width:740px){.ftf-submit-grid{grid-template-columns:1fr !important}}</style>
-<script>
-  (function(){
-    var form=document.getElementById("ftf-form"),
-        ta=form.querySelector("textarea"),
-        count=document.getElementById("ftf-count"),
-        thanks=document.getElementById("ftf-thanks"),
-        demo={{ site.submit_endpoint | default: "" | size }}===0;
-    function tick(){var w=ta.value.trim()?ta.value.trim().split(/\s+/).length:0;count.textContent=w+" / 700 WORDS";count.style.color=w>700?"var(--accent)":"";}
-    ta.addEventListener("input",tick); tick();
-    if(demo){
-      form.addEventListener("submit",function(e){e.preventDefault();form.style.display="none";thanks.style.display="block";});
-    }
-  })();
-</script>
