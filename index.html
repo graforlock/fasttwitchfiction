@@ -9,9 +9,6 @@ nav: home
   {%- if feat -%}
   <section class="ftf-featured">
     <div>
-      <div class="ftf-mb6">
-        <span class="ftf-tag ftf-tag--sm"{% if feat.tone and feat.tone != 'neutral' %} data-cat="{{ feat.tone }}"{% endif %}>{{ feat.category }}</span>
-      </div>
       <h2 class="ftf-featured__title">{{ feat.title }}</h2>
       <p class="ftf-featured__lede">{{ feat.excerpt | strip_html | truncatewords: 34 }}</p>
       <div class="ftf-stack">
@@ -30,8 +27,7 @@ nav: home
   {%- else -%}
   <section class="ftf-featured">
     <div>
-      <h2 class="ftf-featured__title">Nothing on the slab yet.</h2>
-      <p class="ftf-featured__lede">Add a Markdown file to <code>_posts/</code> and it appears here.</p>
+      <h2 class="ftf-featured__title">Coming soon.</h2>
       <a class="ftf-btn" href="{{ '/submit/' | relative_url }}">Submit a specimen →</a>
     </div>
   </section>
