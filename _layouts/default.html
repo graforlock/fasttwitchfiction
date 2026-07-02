@@ -1,31 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script>(function(){try{var t=localStorage.getItem("ftf-theme")||"dark";document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+  <script>document.documentElement.setAttribute("data-theme","dark");</script>
   {%- include head.html -%}
 </head>
 <body>
   <div class="ftf-grain" aria-hidden="true"></div>
-  <button id="ftf-theme-toggle" class="ftf-theme-toggle" type="button" aria-label="Toggle dark mode">◐ Dark</button>
-
   <main>
     {{ content }}
   </main>
 
   {%- include footer.html -%}
-
-  <script>
-    (function(){
-      var KEY="ftf-theme", el=document.documentElement, btn=document.getElementById("ftf-theme-toggle");
-      function sync(){var d=el.getAttribute("data-theme")==="dark";btn.textContent=d?"◑ Light":"◐ Dark";}
-      sync();
-      btn.addEventListener("click",function(){
-        var next=el.getAttribute("data-theme")==="dark"?"light":"dark";
-        el.setAttribute("data-theme",next);
-        try{localStorage.setItem(KEY,next);}catch(e){}
-        sync();
-      });
-    })();
-  </script>
 </body>
 </html>
