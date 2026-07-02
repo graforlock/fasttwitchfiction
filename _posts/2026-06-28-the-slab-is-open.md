@@ -18,7 +18,7 @@ the field reports of what the editors found when they opened a thing up. If
 you are here to submit, good. Read the rules twice. They are short, like the
 form we want.
 
-> It must be read in a single twitch. Continence simply won't take.
+> It must be read in a single twitch.
 > <cite>The reading guidelines, in full</cite>
 
 Present tense preferred. No trigger warnings, no mercy. Under or at 700
